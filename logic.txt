@@ -1,0 +1,24 @@
+LOGIC :
+
+- List all generations and check for selected one
+- Get all pokemons from the API
+    > store them in allPokemons
+    > CreateList()
+        - ActivateFilter >
+            ~ fiter :
+                ~ no-filter : pokemonListFiltered = SelectPokemonFromPage()
+                    - return list of pokemon for the page
+                ~ filter : FilterEveryShown()
+                    - get an array of pokemon of the page filtered, then render()
+                        - RenderListNav(pokemonsFiltered)
+        ~ no-filter:
+            ~ PokemonInPage = SelectPokemonFromPage()
+        ~ filter :
+            ~ PokemonInPage = SelectPokemonFiltered()
+        RenderListNav(PokemonInPage) (list of pokemon to show) >
+            - delete navContent content
+            - create list of names of PokemonInPage
+            - Pagination() >
+                - Append Pagination to navContent
+            - FilterChoices() > 
+                - Apprend Filter choices to navContent
